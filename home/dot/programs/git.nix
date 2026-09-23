@@ -3,7 +3,22 @@
 {
   programs.git = {
     enable = true;
-    userName = "UltraHD-dev";
-    userEmail = "egor.mondik@icloud.com";
+
+    settings = {
+      user = {
+        name = "UltraHD-dev";
+        email = "egor.mondik@icloud.com";
+      };
+
+      init.defaultBranch = "main";
+      pull.rebase = false;
+
+      alias = {
+        st = "status";
+        co = "checkout";
+        br = "branch";
+        lg = "log --oneline --graph --decorate";
+      };
+    };
   };
 }
