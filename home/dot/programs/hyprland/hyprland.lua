@@ -24,7 +24,7 @@ hl.config({
     gaps_out = 15,
     border_size = 2,
     col = {
-      active_border = "rgba(5289E2ee) rgba(6897BBee) 45deg",
+      active_border = { colors = {"rgba(5289E2ee)", "rgba(6897BBee)"}, angle = 45 },
       inactive_border = "rgba(595959aa)",
     },
     layout = "dwindle",
@@ -42,7 +42,6 @@ hl.config({
       range = 4,
       color = "rgba(1a1a1aee)",
     },
-    -- Прозрачность окон
     active_opacity = 0.95,
     inactive_opacity = 0.85,
     fullscreen_opacity = 1.0,
@@ -58,7 +57,7 @@ hl.config({
     },
   },
   dwindle = {
-    pseudotile = true,
+    -- pseudotile удалён в Hyprland 0.55
     preserve_split = true,
   },
   master = {
@@ -94,23 +93,11 @@ hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 
--- Перемещение фокуса (Vim-стиль)
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
-
 -- Перемещение активного окна
 hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.move({ direction = "left" }))
 hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
 hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.move({ direction = "down" }))
-
--- Перемещение активного окна (Vim-стиль)
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 
 -- Изменение размера окна
 hl.bind(mainMod .. " + CTRL + left", hl.dsp.window.resize({ x = -30, y = 0 }), { repeating = true })
@@ -121,16 +108,16 @@ hl.bind(mainMod .. " + CTRL + down", hl.dsp.window.resize({ x = 0, y = 30 }), { 
 -- Переключение рабочих столов
 for i = 1, 10 do
   local key = i % 10
-  hl.bind(mainMod .. " + " .. key, hl.dsp.workspace({ workspace = tostring(i) }))
+  hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = tostring(i) }))
   hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = tostring(i) }))
 end
 
 -- Переключение рабочих столов (колесо мыши)
-hl.bind(mainMod .. " + mouse_down", hl.dsp.workspace({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.workspace({ workspace = "e-1" }))
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
 -- Специальный рабочий стол (scratchpad)
-hl.bind(mainMod .. " + TAB", hl.dsp.workspace({ workspace = "special:scratchpad" }))
+hl.bind(mainMod .. " + TAB", hl.dsp.focus({ workspace = "special:scratchpad" }))
 hl.bind(mainMod .. " + SHIFT + TAB", hl.dsp.window.move({ workspace = "special:scratchpad" }))
 
 -- Медиа-клавиши

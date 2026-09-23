@@ -9,5 +9,6 @@
     ./users.nix
     ./programs/default.nix
     ./locale.nix
+    ./plymouth.nix
   ];
 }
