@@ -19,6 +19,21 @@
   home.packages = with pkgs; [
     tree 
     git
+
+    # Hyprland пакеты
+    kitty
+    fuzzel
+    waybar
+    mako
+    swaybg
+    hyprpolkitagent
+    hyprlock
+    wlogout
+    grim
+    slurp
+    wl-clipboard 
+    brightnessctl
+    kdePackages.dolphin
   ]
 
   # Unstable канал пакетов

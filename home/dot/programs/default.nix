@@ -6,5 +6,6 @@
     ./nvim.nix
     ./git.nix
     ./fastfetch/fastfetch.nix
+    ./hyprland/hyprland.nix
   ];
 }
