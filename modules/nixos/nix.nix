@@ -17,6 +17,14 @@ in
   # Включаем flakes и новый CLI на уровне системы.
   # Это чтобы при переустановке не настраивать вручную.
   nix.settings = {
+    # Flakes
     experimental-features = [ "nix-command" "flakes" ];
+  };
+     
+  # Автоочистка мусора удаление старше 7 дней 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
   };
 }

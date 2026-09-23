@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, pkgsUnstable, inputs, ... }:
 
 {
   # Подключаем все пользовательские программы
@@ -15,17 +15,13 @@
   # Должна совпадать с версией NixOS или быть не выше.
   home.stateVersion = "26.05";
 
+  # Стабильный канал пакетов
   home.packages = with pkgs; [
     tree 
     git
+  ]
 
-    # Для Niri
-    kitty
-    fuzzel
-    waybar
-    mako
-    swaylock
-    swaybg
-    xwayland-satellite
-  ];
+  # Unstable канал пакетов
+  ++ (with pkgsUnstable; [
+  ]);
 }

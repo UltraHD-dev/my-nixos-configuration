@@ -4,6 +4,8 @@
   inputs = {
     # Основной репозиторий пакетов. Ветка 26.05 — стабильная.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    # Unstable канал репозитория пакетов
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # Home Manager — отдельный проект, управляет пользовательскими настройками.
     # Важно: release-26.05 должен совпадать с версией nixpkgs выше.
@@ -46,6 +48,14 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users."dot" = import ./home/dot/default.nix;
+
+            # Передаем unstable пакеты в Home Manager
+            home-manager.extraSpecialArgs = {
+              pkgsUnstable = import inputs.nixpkgs-unstable {
+                system = system;
+                config.allowedUnfree = true;
+              };
+            };
           }
         ];
       };

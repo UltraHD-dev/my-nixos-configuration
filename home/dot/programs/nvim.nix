@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgsUnstable, ... }:
 
 {
   programs.neovim = {
     enable = true;
-
+    
     # Сделать Neovim редактором по умолчанию для команд EDITOR и VISUAL
     defaultEditor = true;
 
