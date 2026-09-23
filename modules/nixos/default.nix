@@ -10,5 +10,6 @@
     ./programs/default.nix
     ./locale.nix
     ./plymouth.nix
+    ./fonts.nix
   ];
 }

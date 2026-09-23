@@ -15,6 +15,11 @@
       # что и система. Без неё будут две разные версии пакетов — источник багов.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Nixvim
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-26.05";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -49,11 +54,15 @@
             home-manager.useUserPackages = true;
             home-manager.users."dot" = import ./home/dot/default.nix;
 
+            home-manager.sharedModules = [
+              inputs.nixvim.homeModules.nixvim
+            ];
+
             # Передаем unstable пакеты в Home Manager
             home-manager.extraSpecialArgs = {
               pkgsUnstable = import inputs.nixpkgs-unstable {
                 system = system;
-                config.allowedUnfree = true;
+                config.allowUnfree = true;
               };
             };
           }

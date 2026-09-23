@@ -12,7 +12,11 @@
   services.desktopManager.plasma6.enable = true;
 
   # Hyprland
-  programs.hyprland.enable =true;
+  programs.hyprland.enable = true;
+
+  # PAM-сервис для hyprlock — без него экран блокировки
+  # не сможет проверять пароль и разблокировать сессию.
+  security.pam.services.hyprlock = { };
 
   # Раскладки клавиатуры: английская и русская,
   # переключение по Alt+Shift.

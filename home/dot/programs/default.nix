@@ -3,9 +3,11 @@
 {
   imports = [
     ./vscode.nix
-    ./nvim.nix
     ./git.nix
     ./fastfetch/fastfetch.nix
-    ./hyprland/hyprland.nix
+    ./hyprland/default.nix
+    ./neovim/neovim.nix
+    ./waybar/default.nix
+    ./wofi/default.nix
   ];
 }
