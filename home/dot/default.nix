@@ -17,5 +17,15 @@
 
   home.packages = with pkgs; [
     tree 
+    git
+
+    # Для Niri
+    kitty
+    fuzzel
+    waybar
+    mako
+    swaylock
+    swaybg
+    xwayland-satellite
   ];
 }

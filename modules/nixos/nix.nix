@@ -16,5 +16,7 @@ in
 
   # Включаем flakes и новый CLI на уровне системы.
   # Это чтобы при переустановке не настраивать вручную.
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+  };
 }
