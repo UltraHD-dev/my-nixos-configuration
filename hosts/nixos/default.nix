@@ -2,10 +2,18 @@
 
 {
   # --- Загрузчик ---
-  # systemd-boot — простой и надёжный загрузчик для UEFI.
-  boot.loader.systemd-boot.enable = true;
-  # Разрешаем NixOS менять EFI-переменные (нужно для записи загрузочных записей).
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = false;
+
+    efi.canTouchEfiVariables = true;
+
+    grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+      useOSProber = true;
+    };
+  };
 
   # Самое свежее ядро из nixpkgs. Хорошо для нового железа.
   boot.kernelPackages = pkgs.linuxPackages_latest;
