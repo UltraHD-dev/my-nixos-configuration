@@ -20,6 +20,12 @@
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
     };
+
+    # Firefox расширения
+    firefox-addons = {
+        url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -62,6 +68,7 @@
 
             # Передаем unstable пакеты в Home Manager
             home-manager.extraSpecialArgs = {
+              inherit (inputs) firefox-addons;
               pkgsUnstable = import inputs.nixpkgs-unstable {
                 system = system;
                 config.allowUnfree = true;
