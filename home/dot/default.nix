@@ -54,7 +54,12 @@
     zathura                # PDF
     wf-recorder            # Для записи
     obs-studio             # -
-
+    glib
+    dconf
+    gsettings-desktop-schemas
+    adw-gtk3
+    gnome-themes-extra
+    
     # ------------Для Hyprland---------------
     kitty                          # терминал
     grim                           # скриншоты
