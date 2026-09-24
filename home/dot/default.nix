@@ -15,6 +15,13 @@
   # Должна совпадать с версией NixOS или быть не выше.
   home.stateVersion = "26.05";
 
+  # Темная тема везде
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
   # Стабильный канал пакетов
   home.packages = with pkgs; [
     tree
@@ -42,5 +49,6 @@
 
   # Unstable канал пакетов
   ++ (with pkgsUnstable; [
+    ayugram-desktop
   ]);
 }
