@@ -15,16 +15,6 @@
   # Должна совпадать с версией NixOS или быть не выше.
   home.stateVersion = "26.05";
 
-  # Иконки приложений: нужны для wofi (режим drun), GTK-приложений,
-  # трея и т.п. Без выбранной икон-темы многие иконки не отображаются.
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
-    };
-  };
-
   # Стабильный канал пакетов
   home.packages = with pkgs; [
     tree

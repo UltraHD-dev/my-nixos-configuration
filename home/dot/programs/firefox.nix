@@ -20,7 +20,7 @@
     };
 
     policies.ExtensionSettings = {
-      "immersive-translate@immersivetranslate.com" = {
+      "{5efceaa7-f3a2-4e59-a54b-85319448e305}" = {
         installation_mode = "force_installed";
         install_url = "https://addons.mozilla.org/firefox/downloads/latest/immersive-translate/latest.xpi";
       };
