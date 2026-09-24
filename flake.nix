@@ -26,6 +26,12 @@
         url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
         inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Noctalia
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -69,6 +75,7 @@
             # Передаем unstable пакеты в Home Manager
             home-manager.extraSpecialArgs = {
               inherit (inputs) firefox-addons;
+              inherit (inputs) noctalia;
               pkgsUnstable = import inputs.nixpkgs-unstable {
                 system = system;
                 config.allowUnfree = true;

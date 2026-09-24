@@ -20,6 +20,21 @@
     tree
     git
     curl
+
+    # Для Hyprland
+    kitty         # терминал (Super+Return)
+    fuzzel        # лаунчер (Super+Space)
+    waybar        # бар
+    mako          # уведомления
+    swaybg        # обои
+    hyprlock      # блокировка
+    hypridle      # idle-менеджмент
+    grim          # скриншоты
+    slurp         # выбор области
+    wl-clipboard  # работа с буфером
+    brightnessctl # яркость
+    pavucontrol   # звук
+    xwayland-satellite  # поддержка X11-приложений
   ]
 
   # Unstable канал пакетов
