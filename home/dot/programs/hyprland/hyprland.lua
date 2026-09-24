@@ -4,6 +4,14 @@
 hl.monitor({ output = "eDP-1", mode = "1920x1080@60", position = "0x0", scale = 1 })
 
 -- ============================================
+-- Курсор
+-- ============================================
+hl.env("XCURSOR_THEME", "Simplify-Dot-2-Light")
+hl.env("XCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_THEME", "Simplify-Dot-2-Light")
+hl.env("HYPRCURSOR_SIZE", "24")
+
+-- ============================================
 -- Кривые для мягких анимаций
 -- ============================================
 hl.curve("soft", { type = "bezier", points = { {0.25, 0.1}, {0.25, 1.0} } })
@@ -100,6 +108,8 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("noctalia-shell")
   hl.exec_cmd("awww-daemon")
 end)
+hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme 'Simplify-Dot-2-Light'")
+hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-size 24")
 
 -- ============================================
 -- Бинды
