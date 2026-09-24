@@ -15,7 +15,7 @@
   # Должна совпадать с версией NixOS или быть не выше.
   home.stateVersion = "26.05";
 
-  # 👇 Глобальная тёмная тема
+  # 👇 ГЛОБАЛЬНАЯ ТЕМА: dconf + переменная окружения
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
@@ -23,8 +23,24 @@
     };
   };
 
-  # 👇 Переменная для GTK-приложений
-  home.sessionVariables.GTK_THEME = "adw-gtk3-dark";
+  # 👇 Принудительно для GTK-приложений
+  home.sessionVariables = {
+    GTK_THEME = "adw-gtk3-dark";
+  };
+
+  # 👇 ПОРТАЛЫ — это ключевой момент
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gnome  # 👈 для GTK-настроек
+    ];
+    config.common = {
+      default = [ "gnome" "hyprland" "gtk" ];
+      "org.freedesktop.impl.portal.Settings" = [ "gnome" ];  # 👈 это читает dconf
+    };
+  };
 
   # Стабильный канал пакетов
   home.packages = with pkgs; [
