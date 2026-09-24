@@ -92,6 +92,18 @@ hl.config({
 })
 
 -- ============================================
+-- Scratchpad-терминал: плавающий Kitty по центру
+-- ============================================
+hl.window_rule({
+  name = "floating-kitty-scratchpad",
+  match = { class = "^(kitty-scratchpad)$" },
+  float = true,
+  size = { "60%", "50%" },
+  center = true,
+  opacity = "0.95 0.9",
+})
+
+-- ============================================
 -- Анимации (мягкие, но не медленные)
 -- ============================================
 hl.animation({ leaf = "windows",    enabled = true, speed = 5, bezier = "smooth", style = "popin 85%" })
@@ -127,6 +139,7 @@ hl.bind(mainMod .. " + C",      hl.dsp.exec_cmd("code"))                        
 hl.bind(mainMod .. " + T",      hl.dsp.exec_cmd("telegram-desktop"))                    -- Telegram
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))      -- буфер обмена
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center")) -- уведомления
+hl.bind(mainMod .. " + Grave", hl.dsp.exec_cmd("kitty --class kitty-scratchpad"))       -- Scratchpad-terminal
 
 -- ─────────────────────────────────────────
 -- Управление окнами
@@ -239,3 +252,4 @@ hl.layer_rule({
   blur = true,
   ignore_alpha = 0.5,
 })
+
