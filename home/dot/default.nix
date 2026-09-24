@@ -20,7 +20,7 @@
     tree
     git
     curl
-    libreoffice-qt6-fresh  # .docx, .pptx, .xlsx и вообще всё офисное
+    typst
     mpv                    # видео (и музыка)
     qimgv                  # фото (и базовое видео)
     zathura                # PDF
