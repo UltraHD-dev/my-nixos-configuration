@@ -92,7 +92,6 @@
     gsettings-desktop-schemas
     adw-gtk3
     gnome-themes-extra
-    hollywood
     
     # ------------Для Hyprland---------------
     kitty                          # терминал
