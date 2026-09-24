@@ -98,7 +98,7 @@ hl.window_rule({
   name = "floating-kitty-scratchpad",
   match = { class = "^(kitty-scratchpad)$" },
   float = true,
-  size = { "40%", "30%" },
+  size = { 800, 400 },
   center = true,
   opacity = "0.95 0.9",
 })
