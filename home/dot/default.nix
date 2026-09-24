@@ -20,6 +20,7 @@
     tree
     git
     curl
+    yazi
     typst
     mpv                    # видео (и музыка)
     qimgv                  # фото (и базовое видео)
