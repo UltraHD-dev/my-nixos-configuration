@@ -158,15 +158,19 @@ hl.bind(mainMod .. " + J", function()                                           
   
   if layout == "dwindle" then
     hl.dispatch(hl.dsp.layout("togglesplit"))
-    hl.notify("Hyprland", "Режим: Dwindle (Togglesplit)", "info")
+    hl.notification.create({ text = "Режим: Dwindle (Togglesplit)", timeout = 5000, icon = "info" })
   elseif layout == "scrolling" then
     -- В scrolling команда "fit active" разворачивает окно на всю ширину [citation:2][citation:7]
     hl.dispatch(hl.dsp.layout("fit active"))
-    hl.notify("Hyprland", "Режим: Scrolling (Fit Active)", "info")
+    hl.notification.create({ text = "Режим: Scrolling (Fit Active)", timeout = 5000, icon = "info" })
   else
-    hl.notify("Hyprland", "Режим: " .. layout, "info")
+    hl.notification.create({ text = "Режим: " .. layout, timeout = 5000, icon = "info" })
   end
 end, { description = "Toggle split / Fit active" })
+
+
+
+
 
 -- ─────────────────────────────────────────
 -- Управление окнами

@@ -59,7 +59,6 @@
     gsettings-desktop-schemas
     adw-gtk3
     gnome-themes-extra
-    opencode
     
     # ------------Для Hyprland---------------
     kitty                          # терминал
