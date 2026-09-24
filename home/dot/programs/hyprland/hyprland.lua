@@ -1,5 +1,10 @@
 -- Основные настройки
 hl.config({
+
+  monitor = {
+    { output = "", mode = "1920x1080@60", scale = 1.0 },
+  },
+
   general = {
     gaps_in = 5,
     gaps_out = 20,
