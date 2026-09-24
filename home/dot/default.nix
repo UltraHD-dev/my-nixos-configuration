@@ -22,8 +22,7 @@
     curl
 
     # Для Hyprland
-    kitty         # терминал (Super+Return)
-    fuzzel        # лаунчер (Super+Space)
+    kitty         # терминал
     waybar        # бар
     mako          # уведомления
     swaybg        # обои
