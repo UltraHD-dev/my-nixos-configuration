@@ -19,10 +19,6 @@
       };
     };
 
-    flavors = {
-      tokyonight = pkgs.yaziFlavors.tokyonight-storm;
-    };
-
     plugins = with pkgs.yaziPlugins; {
       inherit smart-enter chmod ouch mediainfo;
       full-border = { package = full-border; setup = true; };
@@ -39,42 +35,21 @@
     };
   };
 
-  # Весь theme.toml пишем вручную — с flavor и с правилами в новом синтаксисе
+  # Весь theme.toml пишем вручную — без Home Manager-генерации
   xdg.configFile."yazi/theme.toml".text = ''
     [flavor]
     dark = "tokyonight"
     light = "tokyonight"
 
-    [[filetype.rules]]
-    url = "*"
-    is = "orphan"
-    fg = "#f7768e"
-
-    [[filetype.rules]]
-    url = "*"
-    is = "link"
-    fg = "#7aa2f7"
-
-    [[filetype.rules]]
-    url = "*/"
-    is = "link"
-    fg = "#7aa2f7"
-
-    [[filetype.rules]]
-    url = "*"
-    is = "exec"
-    fg = "#9ece6a"
-
-    [[filetype.rules]]
-    mime = "image/*"
-    fg = "#bb9af7"
-
-    [[filetype.rules]]
-    mime = "{audio,video}/*"
-    fg = "#ff9e64"
-
-    [[filetype.rules]]
-    mime = "application/x-bzip"
-    fg = "#bb9af7"
+    [filetype]
+    rules = [
+      { url = "*", is = "orphan", fg = "#f7768e" },
+      { url = "*", is = "link", fg = "#7aa2f7" },
+      { url = "*/", is = "link", fg = "#7aa2f7" },
+      { url = "*", is = "exec", fg = "#9ece6a" },
+      { mime = "image/*", fg = "#bb9af7" },
+      { mime = "{audio,video}/*", fg = "#ff9e64" },
+      { mime = "application/x-bzip", fg = "#bb9af7" }
+    ]
   '';
 }
