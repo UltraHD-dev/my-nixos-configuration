@@ -11,12 +11,20 @@
       extensions = {
         force = true;
 
-        packages = with  firefox-addons.packages.${pkgs.system}; [
+        packages = with firefox-addons.packages.${pkgs.system}; [
           ublock-origin
           darkreader
         ];
       };
-      settings."extensions.autoDisableScopes" = 0;
+
+      # 👇 Настройки для тёмной темы
+      settings = {
+        "extensions.autoDisableScopes" = 0;
+        # Следовать системной тёмной теме (из dconf)
+        "layout.css.prefers-color-scheme.content-override" = 0;
+        # Принудительно включить встроенную тёмную тему Firefox
+        "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+      };
     };
 
     policies.ExtensionSettings = {
