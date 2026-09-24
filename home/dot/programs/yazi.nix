@@ -22,31 +22,12 @@
     flavors = {
       tokyonight = pkgs.yaziFlavors.tokyonight-storm;
     };
-    theme = {
-      flavor = {
-        dark = "tokyonight";
-        light = "tokyonight";
-      };
-    };
 
-    # Плагины с настройками через Home Manager
     plugins = with pkgs.yaziPlugins; {
-      # Без setup() — просто подключаем
       inherit smart-enter chmod ouch mediainfo;
-
-      # С setup() — Home Manager сам сгенерирует init.lua
-      full-border = {
-        package = full-border;
-        setup = true;
-      };
-      git = {
-        package = git;
-        setup = true;
-      };
+      full-border = { package = full-border; setup = true; };
+      git = { package = git; setup = true; };
     };
-
-    # initLua больше не нужен — Home Manager сам всё сгенерирует
-    # initLua = '''';
 
     keymap = {
       mgr.prepend_keymap = [
@@ -57,4 +38,11 @@
       ];
     };
   };
+
+  # Создаём theme.toml вручную, без пустых правил
+  xdg.configFile."yazi/theme.toml".text = ''
+    [flavor]
+    dark = "tokyonight"
+    light = "tokyonight"
+  '';
 }
