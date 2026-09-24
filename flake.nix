@@ -54,6 +54,8 @@
             home-manager.useUserPackages = true;
             home-manager.users."dot" = import ./home/dot/default.nix;
 
+            home-manager.backupFileExtension = "backup";
+
             home-manager.sharedModules = [
               inputs.nixvim.homeModules.nixvim
             ];

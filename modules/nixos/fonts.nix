@@ -2,8 +2,6 @@
 
 {
   # Шрифты.
-  # Nerd Font (JetBrainsMono) нужен для иконок в waybar/wofi (глифы 
-  # и т.п.). Noto Color Emoji — для эмодзи и флагов раскладки (🇺🇸/🇷🇺/🇮🇱).
   fonts = {
     fontconfig = {
       enable = true;

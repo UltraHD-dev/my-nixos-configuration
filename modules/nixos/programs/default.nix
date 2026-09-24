@@ -2,5 +2,6 @@
 
 {
   imports = [
+    ./clash-verge.nix
   ];
 }
