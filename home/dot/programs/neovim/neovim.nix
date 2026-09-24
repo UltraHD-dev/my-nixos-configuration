@@ -10,7 +10,7 @@
     # ==========================================
     # 1. ЛИДЕР-КЛАВИША (ПРОБЕЛ)
     # ==========================================
-    globals.mapleader = " ";  # Устанавливаем Space как лидер [citation:17]
+    globals.mapleader = " ";
 
     # ==========================================
     # 2. LSP И АВТОДОПОЛНЕНИЕ
@@ -18,14 +18,14 @@
     plugins.lsp = {
       enable = true;
       servers = {
-        nil_ls.enable = true;          # Nix [citation:3]
-        gopls.enable = true;           # Go [citation:3]
+        nil_ls.enable = true;
+        gopls.enable = true;
         rust_analyzer = {
           enable = true;
           installCargo = false;
           installRustc = false;
         };
-        pyright.enable = true;         # Python [citation:3]
+        pyright.enable = true;
       };
     };
 
@@ -52,7 +52,7 @@
     # 3. ФАЙЛОВОЕ ДЕРЕВО (NEO-TREE)
     # ==========================================
     plugins.neo-tree = {
-      enable = true;  # Включаем файловый проводник [citation:8]
+      enable = true;
     };
 
     # ==========================================
@@ -80,7 +80,7 @@
     # 6. ДОПОЛНИТЕЛЬНЫЕ ПЛАГИНЫ
     # ==========================================
     plugins.gitsigns.enable = true;
-    plugins.which-key.enable = true;       # Подсказки клавиш при нажатии Space [citation:17]
+    plugins.which-key.enable = true;
     plugins.web-devicons.enable = true;
 
     # ==========================================
@@ -91,17 +91,16 @@
       settings = {
         format_on_save = {
           timeout_ms = 500;
-          lsp_fallback = true;  # Использовать LSP, если нет отдельного форматтера [citation:18]
+          lsp_fallback = true;
         };
         formatters_by_ft = {
-          nix = [ "nixfmt" ];          # Nix [citation:3]
-          go = [ "gofmt" ];            # Go [citation:9]
-          python = [ "ruff_format" ];  # Python [citation:9]
+          nix = [ "nixfmt" ];
+          go = [ "gofmt" ];
+          python = [ "ruff_format" ];
         };
       };
     };
 
-    # Пакеты для форматтеров
     extraPackages = with pkgs; [
       nixfmt-rfc-style
       go
@@ -120,16 +119,16 @@
     # ==========================================
     keymaps = [
       # --- Файловое дерево ---
-      { mode = "n"; key = "<leader>e"; action = "<cmd>Neotree toggle<cr>"; options.desc = "Toggle File Explorer"; } [citation:17]
+      { mode = "n"; key = "<leader>e"; action = "<cmd>Neotree toggle<cr>"; options.desc = "Toggle File Explorer"; }
 
       # --- Поиск (Telescope) ---
-      { mode = "n"; key = "<leader>ff"; action = "<cmd>Telescope find_files<cr>"; options.desc = "Find Files"; } [citation:20]
-      { mode = "n"; key = "<leader>fg"; action = "<cmd>Telescope live_grep<cr>"; options.desc = "Live Grep"; } [citation:20]
-      { mode = "n"; key = "<leader>fb"; action = "<cmd>Telescope buffers<cr>"; options.desc = "Buffers"; } [citation:20]
+      { mode = "n"; key = "<leader>ff"; action = "<cmd>Telescope find_files<cr>"; options.desc = "Find Files"; }
+      { mode = "n"; key = "<leader>fg"; action = "<cmd>Telescope live_grep<cr>"; options.desc = "Live Grep"; }
+      { mode = "n"; key = "<leader>fb"; action = "<cmd>Telescope buffers<cr>"; options.desc = "Buffers"; }
       { mode = "n"; key = "<leader>fh"; action = "<cmd>Telescope help_tags<cr>"; options.desc = "Help Tags"; }
 
       # --- LSP (Навигация и действия) ---
-      { mode = "n"; key = "gd"; action = "<cmd>lua vim.lsp.buf.definition()<cr>"; options.desc = "Go to Definition"; } [citation:3]
+      { mode = "n"; key = "gd"; action = "<cmd>lua vim.lsp.buf.definition()<cr>"; options.desc = "Go to Definition"; }
       { mode = "n"; key = "gD"; action = "<cmd>lua vim.lsp.buf.declaration()<cr>"; options.desc = "Go to Declaration"; }
       { mode = "n"; key = "gr"; action = "<cmd>lua vim.lsp.buf.references()<cr>"; options.desc = "References"; }
       { mode = "n"; key = "K"; action = "<cmd>lua vim.lsp.buf.hover()<cr>"; options.desc = "Hover Info"; }
@@ -154,7 +153,7 @@
       { mode = "n"; key = "<leader>bd"; action = "<cmd>bdelete<cr>"; options.desc = "Delete Buffer"; }
 
       # --- Форматирование ---
-      { mode = "n"; key = "<leader>f"; action = "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<cr>"; options.desc = "Format Buffer"; } [citation:12]
+      { mode = "n"; key = "<leader>f"; action = "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<cr>"; options.desc = "Format Buffer"; }
 
       # --- Базовое ---
       { mode = "n"; key = "<C-s>"; action = "<cmd>w<cr>"; options.desc = "Save File"; }

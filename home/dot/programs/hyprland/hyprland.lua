@@ -224,7 +224,10 @@ hl.bind(mainMod .. " + CTRL + down",  hl.dsp.window.resize({ x = 0, y =  50, rel
 for i = 1, 10 do
   local key = i % 10
   hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = tostring(i) }))
-  hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = tostring(i) }))
+  -- Отправить окно на стол N И переключиться туда (как сейчас)
+  hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = tostring(i), follow = true }))
+  -- Отправить окно на стол N, но остаться на текущем (новый бинд)
+  hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.window.move({ workspace = tostring(i), follow = false }))
 end
 
 -- ─────────────────────────────────────────
