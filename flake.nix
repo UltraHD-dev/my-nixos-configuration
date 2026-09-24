@@ -36,7 +36,6 @@
     #Fish theme
     tokyonight = {
       url = "github:mrjones2014/tokyonight.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
