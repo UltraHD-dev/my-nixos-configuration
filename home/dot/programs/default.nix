@@ -5,9 +5,8 @@
     ./vscode.nix
     ./git.nix
     ./fastfetch/fastfetch.nix
-    ./hyprland/default.nix
+    ./firefox.nix
+    ./clash-verge.nix
     ./neovim/neovim.nix
-    ./waybar/default.nix
-    ./wofi/default.nix
   ];
 }

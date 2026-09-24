@@ -30,34 +30,6 @@
     tree
     git
     curl
-
-    # Hyprland пакеты
-    alacritty
-    kitty
-    fuzzel
-    wofi
-    waybar
-    mako
-    swaybg
-    hyprpolkitagent
-    hyprlock
-    hypridle
-    hyprpaper
-    wlogout
-    grim
-    grimblast
-    slurp
-    hyprpicker
-    wl-clipboard
-    cliphist
-    bemoji
-    swaynotificationcenter
-    playerctl
-    pavucontrol
-    zathura
-    ranger
-    brightnessctl
-    kdePackages.dolphin
   ]
 
   # Unstable канал пакетов
