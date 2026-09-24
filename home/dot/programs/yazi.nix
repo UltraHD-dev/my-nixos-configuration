@@ -1,8 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgsUnstable, ... }:
 
 {
   programs.yazi = {
     enable = true;
+    package = pkgsUnstable.yazi;
     enableFishIntegration = true;
     shellWrapperName = "y";
 
