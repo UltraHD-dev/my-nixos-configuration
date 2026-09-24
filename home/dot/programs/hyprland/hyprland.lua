@@ -14,6 +14,18 @@ hl.curve("snappy", { type = "spring", mass = 1, stiffness = 200, dampening = 25 
 -- Эффект стекла
 -- ============================================
 hl.config({
+
+  device = {
+  {
+    name = "htix5288:00-0911:5288",
+    enabled = false,  -- 👈 отключаем event8 (мышиная часть)
+  },
+  {
+    name = "htix5288:00-0911:5288-1",
+    enabled = true,   -- 👈 оставляем event9 (тачпад)
+  },
+},
+
   general = {
     gaps_in = 4,
     gaps_out = 12,
