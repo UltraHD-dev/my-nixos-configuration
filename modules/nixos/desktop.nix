@@ -7,6 +7,9 @@
   # Сам KDE Plasma 6.
   services.desktopManager.plasma6.enable = true;
 
+  #Hyprland
+  programs.hyprland.enable = true;
+
   # Раскладки клавиатуры: английская и русская,
   # переключение по Alt+Shift.
   services.xserver.xkb = {
