@@ -37,6 +37,12 @@
     tokyonight = {
       url = "github:mrjones2014/tokyonight.nix";
     };
+
+    #Yazi
+    nix-yazi-flavors = {
+      url = "github:aguirre-matteo/nix-yazi-flavors";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

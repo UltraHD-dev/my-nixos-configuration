@@ -20,6 +20,10 @@
     tree
     git
     curl
+    libreoffice-qt6-fresh  # .docx, .pptx, .xlsx и вообще всё офисное
+    mpv                    # видео (и музыка)
+    qimgv                  # фото (и базовое видео)
+    zathura-with-plugins   # PDF
 
     # Для Hyprland
     kitty         # терминал

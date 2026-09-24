@@ -13,5 +13,6 @@
     ./fonts.nix
     ./bluetooth.nix
     ./touchpad-fix.nix 
+    ./overlays.nix
   ];
 }
