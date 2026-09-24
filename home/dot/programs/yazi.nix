@@ -37,6 +37,15 @@
         dark = "tokyonight";
         light = "tokyonight";
       };
+
+      # Переопределяем встроенные правила, чтобы убрать TOML-ошибку
+      # "at least one of 'url' or 'mime' must be specified".
+      filetype.rules = [
+        { url = "*"; is = "orphan"; fg = "#f7768e"; }
+        { url = "*"; is = "link"; fg = "#7aa2f7"; }
+        { url = "*/"; is = "link"; fg = "#7aa2f7"; }
+        { url = "*"; is = "exec"; fg = "#9ece6a"; }
+      ];
     };
 
     # Плагины
@@ -52,7 +61,7 @@
     # Инициализация плагинов
     initLua = ''
       require("full-border"):setup()
-      require("smart-enter"):setup()
+      require("smart-enter"):setup({})  -- пустая таблица, иначе плагин падает
       require("git"):setup()
       require("mediainfo"):setup()
     '';
