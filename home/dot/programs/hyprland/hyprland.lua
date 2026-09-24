@@ -150,21 +150,16 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))     
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle", mode = "maximized" }))  -- максимайз
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))                           -- float
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())                                                       -- псевдо
-hl.bind(mainMod .. " + J", function()                                                                    -- Dwindle или Scrolling
+hl.bind(mainMod .. " + J", function()
   local ws = hl.get_active_workspace()
   if not ws then return end
 
   local layout = ws.tiled_layout
-  
+
   if layout == "dwindle" then
     hl.dispatch(hl.dsp.layout("togglesplit"))
-    hl.notification.create({ text = "Режим: Dwindle (Togglesplit)", timeout = 5000, icon = "info" })
   elseif layout == "scrolling" then
-    -- В scrolling команда "fit active" разворачивает окно на всю ширину [citation:2][citation:7]
     hl.dispatch(hl.dsp.layout("fit active"))
-    hl.notification.create({ text = "Режим: Scrolling (Fit Active)", timeout = 5000, icon = "info" })
-  else
-    hl.notification.create({ text = "Режим: " .. layout, timeout = 5000, icon = "info" })
   end
 end, { description = "Toggle split / Fit active" })
 

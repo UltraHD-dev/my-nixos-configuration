@@ -92,6 +92,7 @@
     gsettings-desktop-schemas
     adw-gtk3
     gnome-themes-extra
+    hollywood
     
     # ------------Для Hyprland---------------
     kitty                          # терминал
@@ -108,5 +109,7 @@
   # Unstable канал пакетов
   ++ (with pkgsUnstable; [
     ayugram-desktop
+    lavat
+    pipes-rs
   ]);
 }
