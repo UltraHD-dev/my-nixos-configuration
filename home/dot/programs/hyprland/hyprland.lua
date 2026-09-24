@@ -54,8 +54,9 @@ hl.config({
     kb_options = "grp:caps_toggle",
     follow_mouse = 1,
     touchpad = {
-      natural_scroll = false,
+      natural_scroll = true,
       clickfinger_behavior = 1,
+      drag_3fg = 1,
     },
   },
   master = {
@@ -102,6 +103,8 @@ hl.bind(mainMod .. " + B",      hl.dsp.exec_cmd("firefox"))                     
 hl.bind(mainMod .. " + E",      hl.dsp.exec_cmd("dolphin"))                             -- проводник
 hl.bind(mainMod .. " + C",      hl.dsp.exec_cmd("code"))                                -- VS Code
 hl.bind(mainMod .. " + T",      hl.dsp.exec_cmd("telegram-desktop"))                    -- Telegram
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))      -- буфер обмена
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center")) -- уведомления
 
 -- ─────────────────────────────────────────
 -- Управление окнами
@@ -109,17 +112,31 @@ hl.bind(mainMod .. " + T",      hl.dsp.exec_cmd("telegram-desktop"))            
 hl.bind(mainMod .. " + W", hl.dsp.window.close())                                                      -- закрыть
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))                           -- fullscreen
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle", mode = "maximized" })) -- максимайз
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))                                -- float
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))                                -- float
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())                                                    -- псевдо
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))                                              -- сменить split
 
 -- ─────────────────────────────────────────
 -- Навигация по окнам (Vim-стиль)
 -- ─────────────────────────────────────────
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + CTRL + H", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + CTRL + L", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + CTRL + K", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + CTRL + J", hl.dsp.focus({ direction = "down" }))
+
+-- ─────────────────────────────────────────
+-- Мышь: перемещение и ресайз окон
+-- ─────────────────────────────────────────
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true }) 
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true }) 
+
+-- ─────────────────────────────────────────
+-- Перемещение плавающих окон (Alt + стрелки)
+-- ─────────────────────────────────────────
+hl.bind(mainMod .. " + ALT + left",  hl.dsp.window.move({ x = -20, y = 0, relative = 1 }), { repeating = true })
+hl.bind(mainMod .. " + ALT + right", hl.dsp.window.move({ x =  20, y = 0, relative = 1 }), { repeating = true })
+hl.bind(mainMod .. " + ALT + up",    hl.dsp.window.move({ x = 0, y = -20, relative = 1 }), { repeating = true })
+hl.bind(mainMod .. " + ALT + down",  hl.dsp.window.move({ x = 0, y =  20, relative = 1 }), { repeating = true })
 
 -- ─────────────────────────────────────────
 -- Перемещение окон (Vim-стиль, Shift)
@@ -128,6 +145,14 @@ hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
 hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
+
+-- ─────────────────────────────────────────
+-- Перемещение плавающих окон (Shift + Alt + стрелки)
+-- ─────────────────────────────────────────
+hl.bind(mainMod .. " + ALT + left",  hl.dsp.window.move({ x = -20, y = 0, relative = 1 }), { repeating = true })
+hl.bind(mainMod .. " + ALT + right", hl.dsp.window.move({ x =  20, y = 0, relative = 1 }), { repeating = true })
+hl.bind(mainMod .. " + ALT + up",    hl.dsp.window.move({ x = 0, y = -20, relative = 1 }), { repeating = true })
+hl.bind(mainMod .. " + ALT + down",  hl.dsp.window.move({ x = 0, y =  20, relative = 1 }), { repeating = true })
 
 -- ─────────────────────────────────────────
 -- Изменение размера (Ctrl + стрелки)
@@ -159,12 +184,6 @@ hl.bind(mainMod .. " + L",         hl.dsp.exec_cmd("noctalia msg session lock"))
 -- ─────────────────────────────────────────
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
 hl.bind("Print",               hl.dsp.exec_cmd("grim - | wl-copy"))
-
--- ─────────────────────────────────────────
--- Подсказка сочетаний клавиш
--- ─────────────────────────────────────────
-hl.bind(mainMod .. " + CTRL + SHIFT + K", hl.dsp.exec_cmd("cheatsheet | fuzzel --dmenu --prompt 'Бинды: '"))
-
 -- ─────────────────────────────────────────
 -- Выход
 -- ─────────────────────────────────────────

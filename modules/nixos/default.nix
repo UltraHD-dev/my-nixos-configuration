@@ -11,5 +11,7 @@
     ./locale.nix
     ./plymouth.nix
     ./fonts.nix
+    ./bluetooth.nix
+    ./touchpad-fix.nix 
   ];
 }
