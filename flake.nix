@@ -32,6 +32,12 @@
       url = "github:noctalia-dev/noctalia";
         inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    #Fish theme
+    tokyonight = {
+      url = "github:mrjones2014/tokyonight.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -76,6 +82,7 @@
             home-manager.extraSpecialArgs = {
               inherit (inputs) firefox-addons;
               inherit (inputs) noctalia;
+              inherit (inputs) tokyonight;
               pkgsUnstable = import inputs.nixpkgs-unstable {
                 system = system;
                 config.allowUnfree = true;

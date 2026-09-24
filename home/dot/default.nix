@@ -23,17 +23,14 @@
 
     # Для Hyprland
     kitty         # терминал
-    waybar        # бар
-    mako          # уведомления
-    swaybg        # обои
-    hyprlock      # блокировка
-    hypridle      # idle-менеджмент
     grim          # скриншоты
     slurp         # выбор области
     wl-clipboard  # работа с буфером
     brightnessctl # яркость
     pavucontrol   # звук
     xwayland-satellite  # поддержка X11-приложений
+    awww # Для обоев и анимаций
+    nerd-fonts.jetbrains-mono # Для шрифтов с иконками (Nerd Fonts)
   ]
 
   # Unstable канал пакетов

@@ -9,5 +9,7 @@
     ./neovim/neovim.nix
     ./noctalia.nix
     ./hyprland/hyprland.nix
+    ./fish.nix
+    ./kitty.nix
   ];
 }
