@@ -23,18 +23,20 @@
     libreoffice-qt6-fresh  # .docx, .pptx, .xlsx и вообще всё офисное
     mpv                    # видео (и музыка)
     qimgv                  # фото (и базовое видео)
-    zathura-with-plugins   # PDF
+    zathura                # PDF
+    wf-recorder            # Для записи
+    obs-studio             # -
 
-    # Для Hyprland
-    kitty         # терминал
-    grim          # скриншоты
-    slurp         # выбор области
-    wl-clipboard  # работа с буфером
-    brightnessctl # яркость
-    pavucontrol   # звук
-    xwayland-satellite  # поддержка X11-приложений
-    awww # Для обоев и анимаций
-    nerd-fonts.jetbrains-mono # Для шрифтов с иконками (Nerd Fonts)
+    # ------------Для Hyprland---------------
+    kitty                          # терминал
+    grim                           # скриншоты
+    slurp                          # выбор области
+    wl-clipboard                   # работа с буфером
+    brightnessctl                  # яркость
+    pavucontrol                    # звук
+    xwayland-satellite             # поддержка X11-приложений
+    awww                           # Для обоев и анимаций
+    nerd-fonts.jetbrains-mono      # Для шрифтов с иконками (Nerd Fonts)
   ]
 
   # Unstable канал пакетов

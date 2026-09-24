@@ -140,16 +140,33 @@ hl.bind(mainMod .. " + T",      hl.dsp.exec_cmd("telegram-desktop"))            
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))      -- буфер обмена
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center")) -- уведомления
 hl.bind(mainMod .. " + Grave", hl.dsp.exec_cmd("kitty --class kitty-scratchpad"))       -- Scratchpad-terminal
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("~/nixos/home/dot/programs/record.sh"))      -- Начать запись
 
 -- ─────────────────────────────────────────
 -- Управление окнами
 -- ─────────────────────────────────────────
-hl.bind(mainMod .. " + W", hl.dsp.window.close())                                                      -- закрыть
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))                           -- fullscreen
-hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle", mode = "maximized" })) -- максимайз
-hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))                                -- float
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())                                                    -- псевдо
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))                                              -- сменить split
+hl.bind(mainMod .. " + W", hl.dsp.window.close())                                                        -- закрыть
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))                              -- fullscreen
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle", mode = "maximized" }))  -- максимайз
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))                           -- float
+hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())                                                       -- псевдо
+hl.bind(mainMod .. " + J", function()                                                                    -- Dwindle или Scrolling
+  local ws = hl.get_active_workspace()
+  if not ws then return end
+
+  local layout = ws.tiled_layout
+  
+  if layout == "dwindle" then
+    hl.dispatch(hl.dsp.layout("togglesplit"))
+    hl.notify("Hyprland", "Режим: Dwindle (Togglesplit)", "info")
+  elseif layout == "scrolling" then
+    -- В scrolling команда "fit active" разворачивает окно на всю ширину [citation:2][citation:7]
+    hl.dispatch(hl.dsp.layout("fit active"))
+    hl.notify("Hyprland", "Режим: Scrolling (Fit Active)", "info")
+  else
+    hl.notify("Hyprland", "Режим: " .. layout, "info")
+  end
+end, { description = "Toggle split / Fit active" })
 
 -- ─────────────────────────────────────────
 -- Управление окнами
