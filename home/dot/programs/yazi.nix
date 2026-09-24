@@ -39,10 +39,42 @@
     };
   };
 
-  # Создаём theme.toml вручную, без пустых правил
+  # Весь theme.toml пишем вручную — с flavor и с правилами в новом синтаксисе
   xdg.configFile."yazi/theme.toml".text = ''
     [flavor]
     dark = "tokyonight"
     light = "tokyonight"
+
+    [[filetype.rules]]
+    url = "*"
+    is = "orphan"
+    fg = "#f7768e"
+
+    [[filetype.rules]]
+    url = "*"
+    is = "link"
+    fg = "#7aa2f7"
+
+    [[filetype.rules]]
+    url = "*/"
+    is = "link"
+    fg = "#7aa2f7"
+
+    [[filetype.rules]]
+    url = "*"
+    is = "exec"
+    fg = "#9ece6a"
+
+    [[filetype.rules]]
+    mime = "image/*"
+    fg = "#bb9af7"
+
+    [[filetype.rules]]
+    mime = "{audio,video}/*"
+    fg = "#ff9e64"
+
+    [[filetype.rules]]
+    mime = "application/x-bzip"
+    fg = "#bb9af7"
   '';
 }
