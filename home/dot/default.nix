@@ -15,12 +15,16 @@
   # Должна совпадать с версией NixOS или быть не выше.
   home.stateVersion = "26.05";
 
-  # Темная тема везде
+  # 👇 Глобальная тёмная тема
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+      gtk-theme = "adw-gtk3-dark";
     };
   };
+
+  # 👇 Переменная для GTK-приложений
+  home.sessionVariables.GTK_THEME = "adw-gtk3-dark";
 
   # Стабильный канал пакетов
   home.packages = with pkgs; [
