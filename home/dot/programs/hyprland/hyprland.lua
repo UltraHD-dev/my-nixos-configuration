@@ -129,6 +129,11 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())                              
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))                                              -- сменить split
 
 -- ─────────────────────────────────────────
+-- Управление окнами
+-- ─────────────────────────────────────────
+hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("scratchpad"))            -- показать/скрыть
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:scratchpad" }))  -- отправить окно туда
+-- ─────────────────────────────────────────
 -- Навигация по окнам (Vim-стиль)
 -- ─────────────────────────────────────────
 hl.bind(mainMod .. " + CTRL + H", hl.dsp.focus({ direction = "left" }))
@@ -187,7 +192,6 @@ end
 -- Панели Noctalia
 -- ─────────────────────────────────────────
 hl.bind(mainMod .. " + Tab",       hl.dsp.exec_cmd("noctalia msg window-switcher"))
-hl.bind(mainMod .. " + S",         hl.dsp.exec_cmd("noctalia msg panel-toggle control-center"))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
 hl.bind(mainMod .. " + L",         hl.dsp.exec_cmd("noctalia msg session lock"))   -- блокировка Noctalia
 
