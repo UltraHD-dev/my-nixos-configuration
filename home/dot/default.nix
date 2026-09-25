@@ -1,4 +1,4 @@
-{ config, pkgs, pkgsUnstable, inputs, ... }:
+{ config, pkgs, pkgsUnstable, gako-neovim, inputs, ... }:
 
 {
   # Подключаем все пользовательские программы

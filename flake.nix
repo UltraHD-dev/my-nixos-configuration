@@ -15,7 +15,7 @@
       # что и система. Без неё будут две разные версии пакетов — источник багов.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     # Firefox расширения
     firefox-addons = {
         url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -79,10 +79,6 @@
             home-manager.users."dot" = import ./home/dot/default.nix;
 
             home-manager.backupFileExtension = "backup";
-
-            home-manager.sharedModules = [
-              inputs.nixvim.homeModules.nixvim
-            ];
 
             # Передаем unstable пакеты в Home Manager
             home-manager.extraSpecialArgs = {
