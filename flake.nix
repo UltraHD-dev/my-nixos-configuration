@@ -15,12 +15,7 @@
       # что и система. Без неё будут две разные версии пакетов — источник багов.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Nixvim
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-26.05";
-    };
-
+    
     # Firefox расширения
     firefox-addons = {
         url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -41,6 +36,12 @@
     #Yazi
     nix-yazi-flavors = {
       url = "github:aguirre-matteo/nix-yazi-flavors";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Neovim от Gako358 (standalone flake)
+    gako-neovim = {
+      url = "path:/home/dot/nixos/nvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -88,6 +89,7 @@
               inherit (inputs) firefox-addons;
               inherit (inputs) noctalia;
               inherit (inputs) tokyonight;
+              inherit (inputs) gako-neovim;
               pkgsUnstable = import inputs.nixpkgs-unstable {
                 system = system;
                 config.allowUnfree = true;

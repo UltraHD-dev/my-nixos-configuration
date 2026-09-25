@@ -92,6 +92,9 @@
     gsettings-desktop-schemas
     adw-gtk3
     gnome-themes-extra
+
+    # Neovim от Gako358
+    gako-neovim.packages.${pkgs.system}.default 
     
     # ------------Для Hyprland---------------
     kitty                          # терминал
