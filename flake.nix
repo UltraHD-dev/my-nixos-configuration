@@ -39,10 +39,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Neovim от Gako358 (standalone flake)
-    gako-neovim = {
-      url = "path:/home/dot/nixos/nvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+    # Nixvim
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-26.05";
     };
   };
 
@@ -80,12 +79,15 @@
 
             home-manager.backupFileExtension = "backup";
 
+            home-manager.sharedModules = [
+              inputs.nixvim.homeModules.nixvim
+            ];
+
             # Передаем unstable пакеты в Home Manager
             home-manager.extraSpecialArgs = {
               inherit (inputs) firefox-addons;
               inherit (inputs) noctalia;
               inherit (inputs) tokyonight;
-              inherit (inputs) gako-neovim;
               pkgsUnstable = import inputs.nixpkgs-unstable {
                 system = system;
                 config.allowUnfree = true;
